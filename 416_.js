@@ -1,4 +1,4 @@
-/**
+*
  * @param {number[]} nums
  * @return {boolean}
  */
@@ -95,15 +95,14 @@ var maxEnvelopes = function(envelopes) {
     for(var i = 0; i < envelopes.length; i++){
         for( var j = 0; j < i; j++){
             if( envelopes[i][0] > envelopes[j][0] && envelopes[i][1] > envelopes[j][1]){
-                dp[i] = dp[i] > dp[j] + 1 ? dp[i] : dp[j];
-                console.log(i,"dp[i]: ",dp[i]);
+                dp[i] = dp[i] > dp[j] + 1 ? dp[i] : dp[j] + 1;
+                // console.log(i,"dp[i]: ",dp[i]);
             }
         }
-        
         ret = ret > dp[i] ? ret : dp[i];
-        console.log("ret: ",ret);
+        // console.log("ret: ",ret);
     }
     return ret;
 };
 maxEnvelopes([[5,4],[6,4],[6,7],[2,3]]);
-/*测试答案不正确*/
+/*↑↑↑测试数据↑↑↑*/
